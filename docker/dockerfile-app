@@ -1,0 +1,16 @@
+# base image
+FROM --platform=linux/amd64 mcr.microsoft.com/mssql/server:2022-latest
+
+# using root
+USER root:root
+
+# create directory for scripts
+RUN mkdir -p /sample_database/
+
+#copy jars files
+COPY ./docker/sample_database/ /sample_database/
+
+WORKDIR /sample_database/
+
+#user
+USER root

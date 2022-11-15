@@ -1,0 +1,22 @@
+version: "3.2"
+
+services:
+  sqlserver:       
+    build: 
+      dockerfile: ./docker/dockerfile-app
+      context: ./
+    image: voidmarcus/sqlserver-image:1.2
+    container_name: sqlserver-container
+
+    ports:
+      - "1433:1433"
+
+    # command: 
+    #   - /bin/bash
+    #   - -c
+    #   - |
+    #       jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='882649.Marcus'   &
+    #       python /app/run.py 
+
+    # volumes:
+    #   - ./app:/app
